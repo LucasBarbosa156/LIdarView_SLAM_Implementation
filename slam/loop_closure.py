@@ -2,18 +2,17 @@ import numpy as np
 
 class LoopClosureDetector:
     def __init__(self, threshold=0.15, min_gap=50):
-        """
-        threshold: distância máxima para considerar loop closure 
-        min_gap: número mínimo de frames de separação para evitar auto-detecção
-        """
+        
+        #threshold: distância máxima para considerar loop closure 
+        #min_gap: número mínimo de frames de separação para evitar auto-detecção
+        
         self.descriptors = []
         self.threshold = threshold
         self.min_gap = min_gap
 
     def add_scan(self, points):
-        """
-        Adiciona um novo scan e busca por loops no passado.
-        """
+        
+        #Adiciona um novo scan e busca por loops no passado.
         # Gerar o descritor para o scan atual
         sc_query = compute_scan_context(points)
         self.descriptors.append(sc_query)
@@ -60,12 +59,10 @@ class LoopClosureDetector:
 
 def compute_scan_context(points, num_rings=20, num_sectors=60, max_range=80.0):
 
-    """
-    points: np.array (N, 3) — nuvem de pontos
     
-    Retorna:
-    - sc: np.array (num_rings, num_sectors) — o descritor 2D
-    """
+#points: np.array (N, 3) — nuvem de pontos
+#Retorna: - sc: np.array (num_rings, num_sectors) — o descritor 2D
+    
     # Calcular a distância horizontal (radial) e o ângulo (azimutal)
     # r = sqrt(x^2 + y^2)
     xy = points[:, :2]
@@ -101,13 +98,12 @@ def compute_scan_context(points, num_rings=20, num_sectors=60, max_range=80.0):
     return sc
 
 def scan_context_distance(sc1, sc2):
-    """
-    sc1, sc2: np.array (num_rings, num_sectors)
     
-    Retorna: float (distância entre 0 e 1, onde 0 é idêntico)
-    """
+    #sc1, sc2: np.array (num_rings, num_sectors)
+    #Retorna: float (distância entre 0 e 1, onde 0 é idêntico)
     # Calcular o produto interno (dot product) coluna a coluna
     # Multiplicação elemento a elemento e soma no eixo das linhas (rings)
+
     dot_products = np.sum(sc1 * sc2, axis=0)
     
     # Calcular as normas de cada coluna para os dois descritores
@@ -115,7 +111,7 @@ def scan_context_distance(sc1, sc2):
     norm2 = np.linalg.norm(sc2, axis=0)
     
     # Calcular a similaridade cosseno por setor
-    # Adicionamos um epsilon (1e-9) para evitar divisão por zero em setores vazios
+    # Adicionar um epsilon (1e-9) para evitar divisão por zero em setores vazios
     denominator = norm1 * norm2
     
     # Onde o denominador é > 0, calculamos dot/den. Onde é 0, a similaridade é 0.

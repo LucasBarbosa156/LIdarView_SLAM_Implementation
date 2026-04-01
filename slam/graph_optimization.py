@@ -6,7 +6,7 @@ def optimize_pose_graph(poses, loop_closures, scans, n_iterations=20):
     """
     Realiza a otimização de grafo de poses para corrigir o drift global.
     """
-    # 1, 2, 3. (Configuração inicial do otimizador fornecida por você)
+
     optimizer = g2o.SparseOptimizer()
     solver = g2o.BlockSolverSE3(g2o.LinearSolverEigenSE3())
     algorithm = g2o.OptimizationAlgorithmLevenberg(solver)
@@ -21,8 +21,6 @@ def optimize_pose_graph(poses, loop_closures, scans, n_iterations=20):
 
     info_odom = np.eye(6)
     info_loop = np.eye(6) * 10  # Peso maior para loops
-
-    # --- 4. ADICIONAR ARESTAS DE ODOMETRIA ---
     # Conecta frames adjacentes (0-1, 1-2, 2-3...)
     for i in range(len(poses) - 1):
         j = i + 1
@@ -38,12 +36,13 @@ def optimize_pose_graph(poses, loop_closures, scans, n_iterations=20):
         e.set_information(info_odom)
         optimizer.add_edge(e)
 
-    # --- 5. ADICIONAR ARESTAS DE LOOP CLOSURE ---
+#DICIONAR ARESTAS DE LOOP CLOSURE
+
     for i, j in loop_closures:
         # i = frame antigo, j = frame atual
         print(f"Refinando loop entre {i} e {j} com ICP...")
         
-        # Rodamos um ICP extra entre os dois scans para garantir o alinhamento
+        # Rodar ICP extra entre os dois scans para garantir o alinhamento
         # scans[j] é o source, scans[i] é o target
         R, t, _ = icp(scans[j], scans[i])
         
