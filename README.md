@@ -6,6 +6,8 @@ and Mapping) com LiDAR, construída do zero em Python.
 O objetivo do projeto foi aprender os fundamentos reais de SLAM 
 implementando cada componente a partir dos algoritmos originais.
 
+Os arquivos .pcd utilizados vieram de um Lidar modelo Velodyne VLP-16
+
 
 ![Mapa gerado pelo pipeline](assets/map_preview.png)
 
@@ -31,12 +33,12 @@ implementando cada componente a partir dos algoritmos originais.
 ```
 LidarView_SLAM/
 ├── slam/
-│   ├── preprocessing.py      # Voxel downsampling, remoção de outliers e chão
+│   ├── preprocessing.py      # Voxel downsampling e remoção de outliers
 │   ├── registration.py       # ICP e funções auxiliares (SVD, correspondências)
 │   ├── loop_closure.py       # Scan Context e LoopClosureDetector
 │   ├── graph_optimization.py # Pose graph com g2o
 │   └── mapping.py            # Pipeline principal (build_map)
-├── main.py                   # Ponto de entrada
+├── main.py                 
 ├── requirements.txt
 └── README.md
 ```
@@ -53,10 +55,11 @@ pip install -r requirements.txt
 **2. Colocar seus arquivos `.pcd` numa pasta**
 
 Os arquivos devem estar em ordem numérica — o pipeline os processa sequencialmente.
+Substitua no main.py: "./data_raw_lidar/", pelo caminho da pasta onde seus arquivos .pcd estão localizados.
 
 **3. Rodar**
 ```
-python main.py --data ./sua_pasta/ --voxel_size 0.3 --visualize
+python3 main.py
 ```
 
 ---
