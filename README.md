@@ -33,12 +33,12 @@ Os arquivos .pcd utilizados vieram de um Lidar modelo Velodyne VLP-16
 ```
 LidarView_SLAM/
 ├── slam/
-│   ├── preprocessing.py      # Voxel downsampling, remoção de outliers e chão
+│   ├── preprocessing.py      # Voxel downsampling e remoção de outliers
 │   ├── registration.py       # ICP e funções auxiliares (SVD, correspondências)
 │   ├── loop_closure.py       # Scan Context e LoopClosureDetector
 │   ├── graph_optimization.py # Pose graph com g2o
 │   └── mapping.py            # Pipeline principal (build_map)
-├── main.py                   # Ponto de entrada
+├── main.py                 
 ├── requirements.txt
 └── README.md
 ```
