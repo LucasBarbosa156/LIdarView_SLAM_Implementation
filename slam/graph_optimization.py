@@ -3,9 +3,7 @@ import numpy as np
 from slam.registration import icp
 
 def optimize_pose_graph(poses, loop_closures, scans, n_iterations=20):
-    """
-    Realiza a otimização de grafo de poses para corrigir o drift global.
-    """
+    #Realiza a otimização de grafo de poses para corrigir o drift global.
 
     optimizer = g2o.SparseOptimizer()
     solver = g2o.BlockSolverSE3(g2o.LinearSolverEigenSE3())
