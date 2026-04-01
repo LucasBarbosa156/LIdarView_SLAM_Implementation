@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+*.pcd
+maps_outputs/
+.venv/
