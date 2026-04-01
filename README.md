@@ -53,10 +53,12 @@ pip install -r requirements.txt
 **2. Colocar seus arquivos `.pcd` numa pasta**
 
 Os arquivos devem estar em ordem numérica — o pipeline os processa sequencialmente.
+Substitua no main.py: "./data_raw_lidar/", pelo caminho da pasta onde seus arquivos .pcd estão localizados.
 
 **3. Rodar**
 ```
-python main.py --data ./sua_pasta/ --voxel_size 0.3 --visualize
+python3 main.py
+
 ```
 
 ---
