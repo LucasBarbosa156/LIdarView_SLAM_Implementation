@@ -6,6 +6,10 @@ and Mapping) com LiDAR, construída do zero em Python.
 O objetivo do projeto foi aprender os fundamentos reais de SLAM 
 implementando cada componente a partir dos algoritmos originais.
 
+
+![Mapa gerado pelo pipeline](assets/map_preview.png)
+
+
 ## O que foi implementado
 
 - **ICP (Iterative Closest Point)** — registro entre nuvens de pontos com 
