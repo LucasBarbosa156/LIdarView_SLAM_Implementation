@@ -58,7 +58,6 @@ Substitua no main.py: "./data_raw_lidar/", pelo caminho da pasta onde seus arqui
 **3. Rodar**
 ```
 python3 main.py
-
 ```
 
 ---
