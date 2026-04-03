@@ -9,7 +9,7 @@ implementando cada componente a partir dos algoritmos originais.
 Os arquivos .pcd utilizados vieram de um Lidar modelo Velodyne VLP-16
 
 
-![Mapa gerado pelo pipeline](assets/map_preview.png)
+![Mapa gerado pelo pipeline](images/map_preview.png)
 
 
 ## O que foi implementado
