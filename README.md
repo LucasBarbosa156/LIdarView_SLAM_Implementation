@@ -1,9 +1,7 @@
 # LiDAR SLAM 
 
 Implementação de um pipeline completo de SLAM (Simultaneous Localization 
-and Mapping) com LiDAR, construída do zero em Python.
-
-O objetivo do projeto foi aprender os fundamentos reais de SLAM 
+and Mapping) com LiDAR, construída do zero em Python. O objetivo do projeto foi aprender os fundamentos reais de SLAM 
 implementando cada componente a partir dos algoritmos originais.
 
 Os arquivos .pcd utilizados vieram de um Lidar modelo Velodyne VLP-16
